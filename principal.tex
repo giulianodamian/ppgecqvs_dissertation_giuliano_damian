@@ -1,0 +1,124 @@
+\documentclass[12pt,openright,oneside,a4paper,
+                chapter=TITLE,section=TITLE,
+                brazil]{abntex2}
+%
+%% PACOTES
+%
+\usepackage[bottom=2cm,top=3cm,
+            left=3cm,right=2cm]{geometry}
+\usepackage[T1]{fontenc}			
+\usepackage{newtxtext,newtxmath} %% times new roman text e math
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{makeidx}
+\usepackage{color}	
+\usepackage{mdframed}
+\usepackage{caption}
+
+\usepackage{enumitem}
+\usepackage{quoting}
+\usepackage{soul}
+\usepackage{graphicx}	
+\usepackage{microtype}	%% MELHORIAS DE JUSTIFICACAO
+\usepackage{indentfirst}			
+\usepackage[alf,recuo=0.0cm,abnt-etal-cite=2,abnt-etal-list=3,
+            abnt-emphasize=bf,abnt-repeated-author-omit=yes,
+            abnt-thesis-year=both,abnt-etal-text=default,
+            abnt-and-type=e,abnt-full-initials=no,
+            bibjustif]{abntex2cite} %% ~MDT
+%
+%% utils
+%
+\usepackage{subfig} 				
+\usepackage{multirow} 				
+\usepackage{tablefootnote}	        
+\usepackage{pgf}
+\usepackage{lipsum}
+\usepackage{rotating}
+\usepackage{multicol}
+\usepackage{verbatim}
+\usepackage{float}
+\DeclareUnicodeCharacter{00EA}{\^{e}}
+\DeclareUnicodeCharacter{1EBD}{\~{e}}
+\usepackage{longtable}
+\usepackage{booktabs}
+\usepackage{hyperref}
+\usepackage{array}
+\usepackage{tabularx}
+\usepackage{adjustbox}
+\usepackage{chngcntr}
+\counterwithout{footnote}{chapter}
+\usepackage{pdfpages}
+
+
+%
+%% CONFIGURACOES AUXILIARES 
+%
+\input{configs/auxconfig}
+%
+\pretextual
+%
+%%	ARQUIVOS EXTERNOS NAO TEXTUAIS
+%
+\input{configs/comandos}		%% COMANDOS PERSONALIZADOS DO USUARIO (se tiver um)
+\input{configs/dados}			%% DADOS SOBRE O TRABALHO
+\input{pretextual/capa}			%% MODELO JUNTO AO DOCUMENTO PRINCIPAL
+\input{pretextual/folhaderosto}	%% MODELO JUNTO AO DOCUMENTO PRINCIPAL
+%
+%%
+\makeindex
+\begin{document}
+%
+\imprimircapa 					%% COMANDO LITERAL ABNTEX2
+\imprimirfolhaderosto 			%% COMANDO LITERAL ABNTEX2
+\include{pretextual/fichacatalografica}
+\include{pretextual/folhadeaprovacao} %% MODELO JUNTO AO DOCUMENTO PRINCIPAL
+\linespread{1.5}
+\include{pretextual/dedicatoria}		%% MODELO JUNTO AO DOCUMENTO PRINCIPAL
+\include{pretextual/agradecimentos}		%% MODELO JUNTO AO DOCUMENTO PRINCIPAL
+\include{pretextual/epigrafe}			%% MODELO JUNTO AO DOCUMENTO PRINCIPAL
+\include{pretextual/resumo}				%% MODELO JUNTO AO DOCUMENTO PRINCIPAL
+\include{pretextual/abstract}			%% MODELO JUNTO AO DOCUMENTO PRINCIPAL
+\listoffigures*	%% O * retira listas do sumario 
+\cleardoublepage
+\listoftables*
+\cleardoublepage
+\include{pretextual/siglas}
+\cleardoublepage
+\tableofcontents*	%% imprime sumario
+\clearpage			%% retira numeração de pagina do sumario
+\textual
+%
+%% TEXTO
+%
+\include{textual/1-intro}
+\include{textual/2-edr}
+\include{textual/3-rp}
+\include{textual/4-scaffolding}
+\include{textual/5-aplicacoes}
+\include{textual/6-resuldisc}
+\include{textual/7-conclusao}
+%
+%% REFERENCIAS
+%
+\postextual
+\bibliography{postextual/ref.bib}
+%
+%% APENDICES 
+%
+\begin{apendicesenv}
+\include{postextual/orp1}
+\include{postextual/orp1subs}
+\include{postextual/questionarioorp1}
+\include{postextual/orp2}
+\include{postextual/orp3}
+\include{postextual/modeloASA}
+\include{postextual/asa1}
+\include{postextual/asa2}
+\include{postextual/asa3}
+\include{postextual/questionario}
+\end{apendicesenv}
+%
+\end{document}
